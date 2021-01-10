@@ -63,6 +63,7 @@ export default {
 .header-container {
   display: flex;
   flex-direction: column;
+  // scroll-behavior:;
 }
 .uiup {
   display: flex;

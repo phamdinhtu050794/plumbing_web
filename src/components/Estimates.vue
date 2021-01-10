@@ -13,7 +13,12 @@
           how to avoid it.
         </h5>
       </div>
-      <a href="#">Read More</a>
+      <router-link :to="{ name: 'ReadMoreClearChokes', params: { readmoreclearId: 123 }}">Read More</router-link>
+      <!-- <a href="`/readmoreclear/${}`">Read More</a> -->
+      <!-- <a :href="'/readmoreclear/' + goto_readmoreclear()"></a> -->
+      
+      <!-- <router-link :to="{ name: 'g-map' }> Read More </router-link> -->
+      
     </div>
     <div class="free">
       <img src="@/assets/free2.png" alt="" />
@@ -24,7 +29,7 @@
           Heaters, Pipes, New re-piping services for the whole house.
         </h5>
       </div>
-      <a href="#">Read More</a>
+      <router-link :to="{ name: 'NewInstallation', params: { newinsatllationId: 123 }}">Read More</router-link>
     </div>
     <div class="free">
       <img src="@/assets/free3.png" alt="" />
@@ -35,14 +40,34 @@
           pipe, copper/stainless steel pipes, toilet bowls, flush systems.
         </h5>
       </div>
-      <a href="#">Read More</a>
+       <router-link :to="{ name: 'LeakingPipe', params: { leakingpipeId: 123 }}">Read More</router-link>
     </div>
   </div>
 </template>
 
 <script>
+import ReadMoreClearChokes from '@/components/ReadMoreClearChokes'
+import NewInstallation from '@/components/NewInstallation'
+import LeakingPipe from '@/components/LeakingPipe'
 export default {
   name: "Estimates",
+
+  components:{
+    ReadMoreClearChokes,
+    NewInstallation,
+    LeakingPipe
+  },
+  methods:{
+    goto_readmoreclear(){
+      this.$router.push({name:'ReadMoreClearChokes', params:{readmoreclearId:123}})
+    },
+    goto_newinstallation(){
+      this.$router.push({name:'NewInstallation', params:{newinsatllationId:123}})
+    },
+     goto_leakingpipe(){
+      this.$router.push({name:'LeakingPipe', params:{leakingpipeId:123}})
+    }
+  },
   props: {
     msg: String,
   },

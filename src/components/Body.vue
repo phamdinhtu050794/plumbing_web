@@ -5,6 +5,7 @@
    <Services></Services>
    <AboutUs></AboutUs>
    <Testimonials></Testimonials>
+   <ContactUs></ContactUs>
    
   </div>
 </template>
@@ -16,6 +17,7 @@ import Estimates from "@/components/Estimates.vue"
 import Services from "@/components/Services.vue"
 import AboutUs from "@/components/AboutUs.vue"
 import Testimonials from "@/components/Testimonials.vue"
+import ContactUs from "@/components/ContactUs.vue"
 export default {
   name: 'Body',
   components:{
@@ -23,7 +25,8 @@ export default {
       Estimates,
       Services,
       AboutUs,
-      Testimonials
+      Testimonials,
+      ContactUs
   },
   props: {
     msg: String
