@@ -23,12 +23,15 @@
     </div>
     <div class="ui">
       <div class="dropdown">
-        <h3><a href="#">Home | </a></h3>
+          <router-link :to="{ name: 'Body', params: { bodyId: 123 }}"><h3>Home | </h3></router-link>
       </div>
       <div class="dropdown">
         <h3><a href="#">Plumping Service & Repair |</a></h3>
         <ul class="dropdown-content">
-          <li><a href="#">Residentials</a></li>
+          <!-- <li><a href="#">Residentials</a></li> -->
+          <li>
+            <router-link :to="{ name: 'Residentials', params: { residentialsId: 123 }}">Residentials</router-link>
+          </li>
         </ul>
       </div>
       <div class="dropdown">
@@ -37,8 +40,8 @@
       <div class="dropdown">
         <h3><a href="#"> About Us |</a></h3>
         <ul class="dropdown-content">
-          <li><a href="#">Our Company Bio</a></li>
-          <li><a href="#">Our Testimonials</a></li>
+          <li> <router-link :to="{ name: 'CompanyBio', params: { companybioId: 123 }}">Our Company Bio</router-link></li>
+          <li> <router-link :to="{ name: 'OurTestimonials', params: { ourtestimonialsId: 123 }}">Our Testimonilas</router-link></li>
           <li><a href="#">Our News</a></li>
         </ul>
       </div>
@@ -50,8 +53,35 @@
 </template>
 
 <script>
+import Residentials from '@/components/Residentials.vue'
+import CompanyBio from '@/components/CompanyBio.vue'
+import OurTestimonials from '@/components/OurTestimonials.vue'
+import Body from '@/components/Body.vue'
+
+
 export default {
   name: "Header",
+  components:{
+    Residentials,
+    CompanyBio,
+    OurTestimonials,
+    Body
+  },
+  methods:{
+    goto_residentiasl(){
+      this.$router.push({name:'Residentials', params:{residentialsId:123}})
+    },
+    goto_companybio(){
+      this.$router.push({name:'CompanyBio', params:{companybioId:123}})
+    },
+      goto_ourtestimonials(){
+      this.$router.push({name:'OurTestimonials', params:{ourtestimonialsId:123}})
+    },
+    goto_body(){
+      this.$router.push({name:'Body', params:{bodyId:123}})
+    },
+
+  },
   props: {
     msg: String,
   },
